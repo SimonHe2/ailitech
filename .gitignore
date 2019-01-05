@@ -2,5 +2,6 @@
 **/target:
 *.class
 *.log:
-
-
+*/.idea/
+*/.idea:
+.idea/

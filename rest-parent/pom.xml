@@ -30,7 +30,11 @@
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>1.5.4.RELEASE</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.4</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
