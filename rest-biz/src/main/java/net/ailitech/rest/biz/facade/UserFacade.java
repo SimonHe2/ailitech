@@ -13,6 +13,7 @@ public class UserFacade {
 
     @RequestMapping(value = "/user",method = RequestMethod.POST)
     public UserDto user(@RequestBody UserDto userDto){
+        userDto.setAge(30);
         return userDto;
     }
 

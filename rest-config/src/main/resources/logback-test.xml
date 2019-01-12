@@ -1,6 +1,6 @@
 <configuration debug="true">
     <!--根节点的debug属性设置为ture,则可以在控制台看到logback自身相关的日志-->
-    <property name="log_base_location" value="/archtech/log"/>
+    <!--<property name="log_base_location" value="/archtech/log"/>-->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
@@ -9,17 +9,17 @@
         </encoder>
     </appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>${log_base_location}/logstash.log</file>
-        <append>true</append>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
-        </encoder>
-    </appender>
+    <!--<appender name="FILE" class="ch.qos.logback.core.FileAppender">-->
+        <!--<file>${log_base_location}/logstash.log</file>-->
+        <!--<append>true</append>-->
+        <!--<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+            <!--<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
 
-    <logger name="com.github.ailitech.rest.support" level="INFO"/>
+    <logger name="com.github.ailitech.rest.support" level="debug"/>
     <root level="debug">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="FILE"/>
+        <!--<appender-ref ref="FILE"/>-->
     </root>
 </configuration>

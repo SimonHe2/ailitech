@@ -1,6 +1,8 @@
 package com.github.ailitech.rest.support.interceptor;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.ReadListener;
@@ -14,11 +16,14 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.stream.Collectors;
 
-public class EnhanceHttpServletRequestWrapper extends HttpServletRequestWrapper {
-    private final String httpBody;
-    public EnhanceHttpServletRequestWrapper(HttpServletRequest request) {
+public class CachingContentRequestWrapper extends HttpServletRequestWrapper {
+
+    private final String payload;
+    private final String charset;
+    public CachingContentRequestWrapper(HttpServletRequest request) throws  IOException {
         super(request);
-        httpBody=getBodyContent(request);
+        payload = getPayload(request);
+        charset= request.getCharacterEncoding();
     }
 
     @Override
@@ -32,10 +37,10 @@ public class EnhanceHttpServletRequestWrapper extends HttpServletRequestWrapper 
 
     @Override
     public ServletInputStream getInputStream() throws IOException{
-        if(StringUtils.isBlank(httpBody)){
+        if(StringUtils.isBlank(payload)){
             return null;
         }
-        final ByteArrayInputStream inputStream=new ByteArrayInputStream(httpBody.getBytes(Charset.forName("UTF-8")));
+        final ByteArrayInputStream inputStream=new ByteArrayInputStream(payload.getBytes(charset));
         ServletInputStream result= new ServletInputStream(){
 
             @Override
@@ -61,14 +66,15 @@ public class EnhanceHttpServletRequestWrapper extends HttpServletRequestWrapper 
         return result;
     }
 
-    private String getBodyContent(HttpServletRequest request){
-        try{
-            if(RequestMethod.POST.name().equalsIgnoreCase(request.getMethod())){
-                return request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-            }
-        }catch (Exception ex){
+    public String getPayload(){
+        return payload;
+    }
+    private String getPayload(HttpServletRequest request) throws IOException{
 
+        if(RequestMethod.POST.name().equalsIgnoreCase(request.getMethod())){
+            return request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         }
+
         return null;
     }
 
