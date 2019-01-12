@@ -1,4 +1,4 @@
-package com.github.ailitech.rest.support.interceptor;
+package com.github.ailitech.rest.support.inbound.logging;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

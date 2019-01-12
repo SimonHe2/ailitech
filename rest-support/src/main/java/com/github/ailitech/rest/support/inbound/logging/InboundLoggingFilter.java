@@ -1,4 +1,4 @@
-package com.github.ailitech.rest.support.interceptor;
+package com.github.ailitech.rest.support.inbound.logging;
 
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;

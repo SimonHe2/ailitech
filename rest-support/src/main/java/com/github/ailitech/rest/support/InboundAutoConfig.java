@@ -1,7 +1,7 @@
 package com.github.ailitech.rest.support;
 
-import com.github.ailitech.rest.support.interceptor.InboundInterceptor;
-import com.github.ailitech.rest.support.interceptor.InboundLoggingFilter;
+import com.github.ailitech.rest.support.inbound.interceptor.InboundInterceptor;
+import com.github.ailitech.rest.support.inbound.logging.InboundLoggingFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

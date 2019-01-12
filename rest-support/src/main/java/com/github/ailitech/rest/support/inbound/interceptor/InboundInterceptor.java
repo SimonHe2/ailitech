@@ -1,4 +1,4 @@
-package com.github.ailitech.rest.support.interceptor;
+package com.github.ailitech.rest.support.inbound.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,8 +12,6 @@ public class InboundInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception{
-
-
         return true;
     }
 
