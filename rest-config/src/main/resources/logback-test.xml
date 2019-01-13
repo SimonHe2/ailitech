@@ -17,8 +17,8 @@
         <!--</encoder>-->
     <!--</appender>-->
 
-    <logger name="com.github.ailitech.rest.support" level="INFO"/>
-    <root level="INFO">
+    <logger name="com.github.ailitech.rest.support" level="DEBUG"/>
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
         <!--<appender-ref ref="FILE"/>-->
     </root>
