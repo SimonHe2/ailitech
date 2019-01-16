@@ -1,1 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.github.ailitech.rest.support.InboundAutoConfig
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+net.ailitech.rest.support.InboundAutoConfig

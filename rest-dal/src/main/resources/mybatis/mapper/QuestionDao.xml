@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.github.ailitech.rest.dal.mapper.QuestionDao">
-  <resultMap id="BaseResultMap" type="com.github.ailitech.rest.model.po.QuestionPo">
+<mapper namespace="net.ailitech.rest.dal.mapper.QuestionDao">
+  <resultMap id="BaseResultMap" type="net.ailitech.rest.model.po.QuestionPo">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -26,7 +26,7 @@
     delete from question
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.github.ailitech.rest.model.po.QuestionPo"
+  <insert id="insert" parameterType="net.ailitech.rest.model.po.QuestionPo"
           keyColumn="id" useGeneratedKeys="true" keyProperty="id">
 
     insert into question (id, title, create_time, 
@@ -38,7 +38,7 @@
       #{type,jdbcType=INTEGER}, #{subject,jdbcType=INTEGER}, #{options,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.github.ailitech.rest.model.po.QuestionPo"
+  <insert id="insertSelective" parameterType="net.ailitech.rest.model.po.QuestionPo"
           keyColumn="id" useGeneratedKeys="true" keyProperty="id">
 
     insert into question
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.github.ailitech.rest.model.po.QuestionPo">
+  <update id="updateByPrimaryKeySelective" parameterType="net.ailitech.rest.model.po.QuestionPo">
     update question
     <set>
       <if test="title != null">
@@ -128,7 +128,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <!--自定义-->
-  <select id="query" parameterType="com.github.ailitech.rest.model.po.QuestionPo" resultMap="BaseResultMap">
+  <select id="query" parameterType="net.ailitech.rest.model.po.QuestionPo" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from question
